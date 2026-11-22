@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Evaluación integradora: Ciencia, técnica y tecnología</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7e6;--card:#fff;--tx:#2b2147;--mut:#6b6385;--pk:#ff5fa2;--ye:#ffc93c;--tl:#1fc8b0;--bl:#4d7cff;--pu:#8b5cf6;--or:#ff8a3d;--ok:#1fa97a;--bad:#e5484d;--ln:#2b2147;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1633;--card:#2a2350;--tx:#f4f0ff;--mut:#b9b0d9;--ln:#f4f0ff;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Nunito,system-ui,sans-serif;font-size:17px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:16px}
+h1,h2,h3{font-family:'Baloo 2',Nunito,sans-serif;line-height:1.15;margin:.2em 0}
+header{background:linear-gradient(135deg,var(--pk),var(--or) 45%,var(--ye));border:3px solid var(--ln);border-radius:24px;padding:22px;box-shadow:6px 6px 0 var(--ln);color:#2b2147}
+header h1{font-size:clamp(26px,6vw,40px)}
+header p{margin:.3em 0}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:6px 0;background:var(--bg)}
+nav button{font:800 15px Nunito,sans-serif;border:3px solid var(--ln);border-radius:999px;padding:8px 14px;background:var(--card);color:var(--tx);cursor:pointer}
+nav button.on{background:var(--bl);color:#fff;box-shadow:3px 3px 0 var(--ln)}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border:3px solid var(--ln);border-radius:20px;padding:18px;margin:16px 0;box-shadow:5px 5px 0 var(--c,var(--bl))}
+.tag{display:inline-block;background:var(--c,var(--bl));color:#fff;font:800 13px Nunito;border-radius:999px;padding:3px 12px;margin-bottom:6px}
+.opt{display:block;width:100%;text-align:left;font:700 16px Nunito;background:var(--bg);color:var(--tx);border:3px solid var(--ln);border-radius:14px;padding:10px 12px;margin:8px 0;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--ye);color:#2b2147}
+.opt.ok{background:var(--ok);color:#fff}.opt.bad{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+select,textarea,input[type=text]{width:100%;font:600 16px Nunito;border:3px solid var(--ln);border-radius:12px;padding:9px;background:var(--bg);color:var(--tx)}
+textarea{min-height:90px;resize:vertical}
+label.q{display:block;font-weight:800;margin:14px 0 4px}
+.btn{font:800 16px Nunito;background:var(--tl);color:#102;border:3px solid var(--ln);border-radius:14px;padding:10px 18px;cursor:pointer;box-shadow:3px 3px 0 var(--ln)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ln)}
+.btn.alt{background:var(--ye);color:#2b2147}
+.msg{font-weight:800;margin-top:10px}
+.sent{display:grid;grid-template-columns:1fr;gap:6px;margin:12px 0}
+.sent select.ok{border-color:var(--ok);background:#c8f5e4;color:#103}
+.sent select.bad{border-color:var(--bad);background:#ffd6d8;color:#300}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{border:2px solid var(--ln);padding:8px;text-align:center}
+th:first-child,td:first-child{text-align:left}
+th{background:var(--ye);color:#2b2147}
+.bar{height:14px;border-radius:99px;background:var(--c);border:2px solid var(--ln)}
+canvas{width:100%;height:auto;aspect-ratio:3/2;background:#fff;border:3px solid var(--ln);border-radius:14px;touch-action:none;cursor:crosshair}
+.pal{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
+.pal i{width:30px;height:30px;border-radius:50%;border:3px solid var(--ln);cursor:pointer;display:inline-block}
+.pal i.on{outline:4px solid var(--ye)}
+.score{font:800 22px 'Baloo 2';color:var(--pu)}
+ul.chk{list-style:none;padding:0}ul.chk li{margin:8px 0}
+ul.chk input{width:22px;height:22px;vertical-align:middle;margin-right:8px;accent-color:var(--pk)}
+.scn{background:linear-gradient(135deg,#fff3b0,#ffd1e8);color:#2b2147;border:3px dashed var(--ln);border-radius:16px;padding:14px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🔬⚙️💡 Ciencia, técnica y tecnología</h1>
+<p><b>Evaluación integradora · Educación Tecnológica · 3.er año</b></p>
+<p>Modalidad: individual, con una instancia de intercambio entre pares. Leé bien cada consigna, justificá tus respuestas cuando se pida y aprovechá las revisiones para seguir aprendiendo.</p>
+<p style="margin-top:12px"><input type="text" id="nombre" data-k="nombre" placeholder="✏️ Tu nombre y apellido" style="max-width:360px"></p>
+</header>
+<nav id="nav"></nav>
+<main id="main"></main>
+<p style="text-align:center"><button class="btn alt" id="reset">🧹 Borrar mis respuestas</button></p>
+</div>
+<script>
+var $=function(s,r){return (r||document).querySelector(s)};
+var store={};try{store=JSON.parse(localStorage.getItem('evalctt')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('evalctt',JSON.stringify(store))}catch(e){}}
+var COL=['var(--pk)','var(--bl)','var(--tl)','var(--or)','var(--pu)'];
+function ta(id,l,r){return '<label class="q">'+l+'</label><textarea data-k="'+id+'" placeholder="Escribí acá..."'+(r?' rows="'+r+'"':'')+'></textarea>'}
+var W=['Ciencia','Técnica','Tecnología','Innovación','Invención','Descubrimiento'];
+function sel(k){return '<select data-k="'+k+'"><option value="">— elegí —</option>'+W.map(function(w){return '<option>'+w+'</option>'}).join('')+'</select>'}
+
+var Q=[
+["¿Qué entendemos por ciencia?",["La aplicación de herramientas para fabricar productos.","Un conjunto organizado de conocimientos que busca explicar los fenómenos de la realidad.","El conjunto de máquinas y dispositivos que utilizamos diariamente.","Una actividad destinada exclusivamente a resolver problemas industriales."],1],
+["¿Qué entendemos por técnica?",["Un conjunto de procedimientos y habilidades utilizados para realizar una actividad.","Una explicación teórica sobre los fenómenos naturales.","Un producto elaborado mediante tecnología.","Un conocimiento que no requiere práctica."],0],
+["¿Qué es la tecnología?",["El uso exclusivo de dispositivos electrónicos.","La aplicación de conocimientos, técnicas y recursos para resolver necesidades y problemas.","El estudio de los fenómenos naturales sin intervención humana.","La fabricación de máquinas y herramientas únicamente."],1],
+["¿Cuál de las siguientes situaciones representa una aplicación de la ciencia?",["Utilizar un destornillador para ajustar un tornillo.","Investigar por qué determinados materiales conducen electricidad.","Ensamblar las piezas de una silla.","Utilizar una computadora para escribir un documento."],1],
+["¿Cuál de las siguientes situaciones representa una innovación?",["Crear por primera vez un dispositivo que no existía.","Encontrar un fenómeno natural que no había sido identificado.","Introducir mejoras en un producto existente para hacerlo más eficiente.","Repetir un procedimiento sin realizar modificaciones."],2]];
+var F=[["La","busca producir conocimientos mediante la investigación y la observación.","Ciencia"],["La","comprende los procedimientos y habilidades necesarios para realizar una actividad.","Técnica"],["La","utiliza conocimientos y recursos para resolver necesidades humanas.","Tecnología"],["La","consiste en introducir mejoras o cambios en productos, procesos o servicios existentes.","Innovación"],["La","es la creación de un producto, procedimiento o dispositivo nuevo.","Invención"],["El","permite identificar o reconocer algo que ya existía, pero que no se conocía.","Descubrimiento"]];
+var S=[["Un grupo de investigadores identifica una nueva especie de microorganismo.",["Descubrimiento","Ciencia"]],["Una persona aprende y aplica un procedimiento para soldar dos piezas metálicas.",["Técnica"]],["Un equipo desarrolla un sistema de riego automático que utiliza sensores de humedad.",["Tecnología","Invención"]],["Una empresa modifica el diseño de una lámpara para reducir su consumo energético.",["Innovación"]]];
+var PEER=["Identifica claramente el problema.","Relaciona ciencia, técnica y tecnología.","Propone una solución posible.","Fundamenta sus decisiones.","Comunica sus ideas claramente."];
+var AUTO=["Puedo diferenciar ciencia, técnica y tecnología.","Puedo reconocer ejemplos de innovación, invención y descubrimiento.","Puedo aplicar los conceptos a una situación concreta.","Puedo fundamentar una solución tecnológica."];
+var MX=[["Comprensión de conceptos (parte 1)",20],["Análisis del problema y aplicación de conocimientos (parte 2)",35],["Diseño y fundamentación de la solución",20],["Comunicación y revisión de la producción",20],["Reflexión sobre el propio aprendizaje",5]];
+
+var P={};
+P.inicio='<div class="card" style="--c:var(--tl)"><span class="tag">¡Bienvenido/a!</span><h2>¿Qué vas a hacer?</h2><p>Esta evaluación tiene como propósito recuperar e integrar lo que trabajamos sobre <b>ciencia, técnica y tecnología</b>: reconocer sus características, diferencias y relaciones, y aplicarlas a situaciones concretas.</p></div>'+
+['🧠 <b>Parte 1 · Comprendemos los conceptos.</b> Reconocer, relacionar e interpretar los conceptos de las clases.','🛠️ <b>Parte 2 · Aplicamos lo aprendido.</b> Analizar un problema, proponer una solución tecnológica y fundamentar tus decisiones.','🎤 <b>Parte 3 · Comunicamos y revisamos.</b> Presentar tu producción, intercambiar opiniones con un compañero y reflexionar sobre tus logros.'].map(function(t,i){return '<div class="card" style="--c:'+COL[i+1]+'">'+t+'</div>'}).join('')+
+'<div class="card" style="--c:var(--ye)">⭐ Se valora no solo que comprendas los contenidos, sino también que los <b>relaciones, apliques, fundamentes y comuniques</b>. Tus respuestas se guardan solas en este dispositivo.</div>';
+
+P.p1='<div class="card" style="--c:var(--pk)"><span class="tag">Consigna 1</span><h2>Selección múltiple</h2><p>Marcá una sola respuesta correcta en cada pregunta.</p><div class="score" id="sc1"></div></div>'+
+Q.map(function(q,i){return '<div class="card" style="--c:var(--pk)" data-q="'+i+'"><b>'+(i+1)+'. '+q[0]+'</b>'+q[1].map(function(o,j){return '<button class="opt" data-j="'+j+'"><b>'+'abcd'[j]+'.</b> '+o+'</button>'}).join('')+'</div>'}).join('')+
+'<div class="card" style="--c:var(--or)"><span class="tag">Consigna 2</span><h2>Relacionamos conceptos</h2><p>Completá con las palabras del recuadro. <b>Cada palabra se usa una sola vez.</b></p><p style="font-weight:800">'+W.map(function(w,i){return '<span class="tag" style="--c:'+COL[i%5]+'">'+w+'</span>'}).join(' ')+'</p>'+
+F.map(function(f,i){return '<div class="sent"><span>'+'abcdef'[i]+'. '+f[0]+'</span>'+sel('f'+i)+'<span>'+f[1]+'</span></div>'}).join('')+'<button class="btn" id="chk2">✅ Comprobar</button><div class="msg" id="m2"></div></div>'+
+'<div class="card" style="--c:var(--tl)"><span class="tag">Consigna 3</span><h2>Interpretamos situaciones</h2><p>Elegí si cada ejemplo corresponde a ciencia, técnica, tecnología, innovación, invención o descubrimiento. Después <b>justificá brevemente dos</b> de tus respuestas.</p>'+
+S.map(function(s,i){return '<div class="sent"><span>• '+s[0]+'</span>'+sel('s'+i)+'</div>'}).join('')+'<button class="btn" id="chk3">✅ Comprobar</button><div class="msg" id="m3"></div>'+ta('j1','Justificación 1')+ta('j2','Justificación 2')+'</div>';
+
+P.p2='<div class="card" style="--c:var(--or)"><span class="tag">Situación</span><h2>Una escuela necesita mejorar su iluminación 🌙</h2><div class="scn">Una institución educativa cuenta con un espacio exterior que se usa durante las actividades escolares. Cuando oscurece, la iluminación es insuficiente y <b>no existe una conexión eléctrica cercana</b>. La institución pide a un grupo de estudiantes que investigue alternativas y presente una propuesta tecnológica.<br><b>El desafío:</b> diseñar una solución posible, considerando los conocimientos científicos, las técnicas y los recursos tecnológicos que podrían utilizarse.</div></div>'+
+'<div class="card" style="--c:var(--pk)"><span class="tag">Consigna 4</span><h2>Analizamos el problema</h2>'+ta('a4','a. ¿Cuál es la necesidad que debe resolver la institución?')+ta('b4','b. ¿Por qué podemos afirmar que esta situación requiere una solución tecnológica?')+ta('c4','c. ¿Qué conocimientos científicos sería necesario investigar antes de diseñar una solución? Mencioná al menos dos.')+ta('d4','d. ¿Qué información necesitarías conocer para seleccionar los materiales y dispositivos adecuados?')+'</div>'+
+'<div class="card" style="--c:var(--bl)"><span class="tag">Consigna 5</span><h2>Diseñamos una solución</h2><p>Imaginá que formás parte del equipo. Podés pensar en lámparas solares, sensores de movimiento, sistemas de almacenamiento de energía u otras alternativas.</p>'+ta('a5','a. Proponé una solución tecnológica para mejorar la iluminación del espacio.')+ta('b5','b. Describí cómo funcionaría tu propuesta.')+ta('c5','c. Identificá al menos tres recursos tecnológicos o materiales que necesitarías.')+ta('d5','d. Explicá qué técnicas o procedimientos serían necesarios para construir o instalar la solución.')+
+'<label class="q">e. Dibujá un esquema sencillo de tu propuesta e identificá sus componentes principales 🎨</label><div class="pal" id="pal"></div><canvas id="cv" width="900" height="600"></canvas><p><button class="btn alt" id="clr">🗑️ Borrar dibujo</button></p>'+ta('e5','Referencias de tu esquema (nombrá los componentes)')+'</div>'+
+'<div class="card" style="--c:var(--pu)"><span class="tag">Consigna 6</span><h2>Fundamentamos nuestras decisiones</h2>'+ta('a6','a. ¿Qué relación existe entre ciencia, técnica y tecnología en tu propuesta?')+ta('b6','b. ¿Qué ventajas tendría tu solución para la institución?')+ta('c6','c. ¿Qué dificultades podrían presentarse durante su implementación?')+ta('d6','d. ¿Tu propuesta representa una invención o una innovación? Fundamentá. Si no corresponde a ninguna, explicá por qué.')+'</div>';
+
+function radios(rows,opts,pre){return '<div class="scroll"><table><tr><th>'+(pre=='p'?'Criterio':'Afirmación')+'</th>'+opts.map(function(o){return '<th>'+o+'</th>'}).join('')+'</tr>'+rows.map(function(r,i){return '<tr><td>'+r+'</td>'+opts.map(function(o){return '<td><input type="radio" data-k="'+pre+i+'" name="'+pre+i+'" value="'+o+'" style="width:20px;height:20px;accent-color:var(--pk)"></td>'}).join('')+'</tr>'}).join('')+'</table></div>'}
+P.p3='<div class="card" style="--c:var(--tl)"><span class="tag">Consigna 7</span><h2>Presentamos nuestra propuesta 🎤</h2><p>Elaborá una presentación digital breve (<b>de 3 a 5 diapositivas</b>) con PowerPoint, Canva o una herramienta similar. Tiene que incluir:</p><ul class="chk">'+['El problema identificado.','La solución tecnológica propuesta.','Los conocimientos científicos, las técnicas y los recursos tecnológicos involucrados.','Un esquema o dibujo de la solución.','Una justificación de por qué tu propuesta es adecuada.'].map(function(t,i){return '<li><label><input type="checkbox" data-k="ck'+i+'">'+t+'</label></li>'}).join('')+'</ul></div>'+
+'<div class="card" style="--c:var(--or)"><span class="tag">Consigna 8</span><h2>Evaluación entre pares 🤝</h2><p>Intercambiá tu presentación con un compañero, analizá su propuesta y completá la ficha.</p><label class="q">Nombre del compañero cuya producción revisás</label><input type="text" data-k="comp">'+'<div style="margin-top:12px">'+radios(PEER,['Sí','Parcialmente','No'],'p')+'</div>'+ta('lg','Un aspecto logrado de la propuesta',3)+ta('sg','Una sugerencia para mejorarla',3)+'</div>'+
+'<div class="card" style="--c:var(--pu)"><span class="tag">Consigna 9</span><h2>Autoevaluación 🪞</h2><p>Reflexioná sobre tu proceso de aprendizaje y marcá la opción que mejor represente tu experiencia.</p>'+radios(AUTO,['Logrado','En proceso','Necesito ayuda'],'a')+ta('r1','a. ¿Qué fue lo que más aprendiste durante esta evaluación?',3)+ta('r2','b. ¿Qué actividad te resultó más difícil? ¿Por qué?',3)+ta('r3','c. ¿Qué concepto o contenido necesitás seguir reforzando?',3)+'</div>';
+
+P.matriz='<div class="card" style="--c:var(--ye)"><span class="tag">Para tener en cuenta</span><h2>Criterios de evaluación docente</h2><p>Así se va a valorar tu trabajo (matriz de valoración):</p>'+MX.map(function(m,i){return '<div style="margin:14px 0"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:800"><span>'+m[0]+'</span><span>'+m[1]+' %</span></div><div class="bar" style="--c:'+COL[i]+';width:'+m[1]*2.5+'%;min-width:14px;max-width:100%"></div></div>'}).join('')+'<p class="score">Total: 100 %</p></div>';
+
+var TABS=[['inicio','🏠 Inicio'],['p1','🧠 Parte 1'],['p2','🛠️ Parte 2'],['p3','🎤 Parte 3'],['matriz','📊 Criterios']];
+$('#nav').innerHTML=TABS.map(function(t){return '<button data-t="'+t[0]+'">'+t[1]+'</button>'}).join('');
+$('#main').innerHTML=TABS.map(function(t){return '<section id="s-'+t[0]+'">'+P[t[0]]+'<p style="text-align:center">'+(t[0]!='matriz'?'<button class="btn" data-next="'+t[0]+'">Siguiente ➜</button>':'')+'</p></section>'}).join('');
+function show(id){if(!P[id])id='inicio';document.querySelectorAll('section').forEach(function(s){s.classList.toggle('on',s.id=='s-'+id)});document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.t==id)});try{history.replaceState(null,'','#'+id)}catch(e){}window.scrollTo(0,0)}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(b)show(b.dataset.t);var n=e.target.closest('[data-next]');if(n){var i=TABS.findIndex(function(t){return t[0]==n.dataset.next});show(TABS[i+1][0])}});
+show(location.hash.slice(1));
+
+// guardado
+document.querySelectorAll('[data-k]').forEach(function(el){var k=el.dataset.k,v=store[k];if(v!==undefined){if(el.type=='radio')el.checked=(v==el.value);else if(el.type=='checkbox')el.checked=!!v;else el.value=v}
+el.addEventListener('change',function(){store[k]=el.type=='checkbox'?el.checked:el.value;save()});el.addEventListener('input',function(){if(el.type!='radio'&&el.type!='checkbox'){store[k]=el.value;save()}})});
+
+// parte 1 selección múltiple
+var sc=0,done=0;
+function upd(){$('#sc1').textContent=done?('Puntaje: '+sc+' / '+Q.length+(done==Q.length?(sc==Q.length?' 🎉 ¡Perfecto!':' 👏'):'')):''}
+function lock(card,j,fromSaved){var q=Q[card.dataset.q];card.querySelectorAll('.opt').forEach(function(b,i){b.disabled=true;if(i==q[2])b.classList.add('ok');else if(i==j)b.classList.add('bad')});done++;if(j==q[2])sc++;upd()}
+document.querySelectorAll('[data-q]').forEach(function(card){var i=card.dataset.q;if(store['q'+i]!==undefined)lock(card,store['q'+i]);card.addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b||b.disabled)return;store['q'+i]=+b.dataset.j;save();lock(card,+b.dataset.j)})});
+// consignas 2 y 3
+function mark(s,ok){s.classList.toggle('ok',ok);s.classList.toggle('bad',!ok)}
+$('#chk2').onclick=function(){var n=0,used={};F.forEach(function(f,i){var s=$('[data-k=f'+i+']');if(!s.value){s.classList.remove('ok','bad');return}var dup=used[s.value];used[s.value]=1;var ok=s.value==f[2]&&!dup;mark(s,ok);if(ok)n++});$('#m2').textContent=n==6?'🎉 ¡Todas correctas!':n+' de 6 correctas. Revisá las marcadas en rojo y recordá que no se repiten palabras.'};
+$('#chk3').onclick=function(){var n=0;S.forEach(function(x,i){var s=$('[data-k=s'+i+']');if(!s.value){s.classList.remove('ok','bad');return}var ok=x[1].indexOf(s.value)>-1;mark(s,ok);if(ok)n++});$('#m3').textContent=n+' de 4 correctas. ¡No te olvides de justificar dos respuestas!'};
+// dibujo
+var cv=$('#cv'),cx=cv.getContext('2d'),col='#2b2147',dr=false,lw=5;
+cx.fillStyle='#fff';cx.fillRect(0,0,900,600);
+if(store.dib){var im=new Image();im.onload=function(){cx.drawImage(im,0,0)};im.src=store.dib}
+$('#pal').innerHTML=['#2b2147','#ff5fa2','#4d7cff','#1fc8b0','#ff8a3d','#8b5cf6','#e5b400','#ffffff'].map(function(c,i){return '<i data-c="'+c+'" style="background:'+c+'" class="'+(i?'':'on')+'"></i>'}).join('')+'<span style="font-size:14px;color:var(--mut)">(blanco = goma)</span>';
+$('#pal').onclick=function(e){var i=e.target.closest('i');if(!i)return;col=i.dataset.c;lw=col=='#ffffff'?22:5;document.querySelectorAll('#pal i').forEach(function(x){x.classList.toggle('on',x==i)})};
+function pos(e){var r=cv.getBoundingClientRect();return [(e.clientX-r.left)*900/r.width,(e.clientY-r.top)*600/r.height]}
+cv.addEventListener('pointerdown',function(e){dr=true;cv.setPointerCapture(e.pointerId);var p=pos(e);cx.beginPath();cx.moveTo(p[0],p[1]);cx.lineWidth=lw;cx.lineCap='round';cx.strokeStyle=col;cx.lineTo(p[0]+.1,p[1]);cx.stroke()});
+cv.addEventListener('pointermove',function(e){if(!dr)return;var p=pos(e);cx.lineTo(p[0],p[1]);cx.stroke()});
+function up(){if(!dr)return;dr=false;try{store.dib=cv.toDataURL('image/jpeg',.6);save()}catch(e){}}
+cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+$('#clr').onclick=function(){cx.fillStyle='#fff';cx.fillRect(0,0,900,600);delete store.dib;save()};
+$('#reset').onclick=function(){if(confirm('¿Seguro que querés borrar todas tus respuestas?')){store={};save();location.reload()}};
+</script>
+</body>
+</html>
